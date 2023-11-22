@@ -1,0 +1,125 @@
+body{
+      direction: rtl;
+      margin: auto;
+      font-size: 16px;
+      font-family: 'Traditional Arabic' ;
+      font-weight: bold;
+      color:darkblue;
+}
+div.container{
+      width:80vw;
+      height:90vh;
+      margin: auto;
+      margin-top:10px;
+      border-radius: 2px solid red;
+      
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: 1fr 5fr 1fr;
+      grid-template-areas: 
+      "h h h h h h h h"
+      "r r l l l l l l"
+      "f f f f f f f f";
+}
+div.header{
+      grid-area: h;
+      
+      display:flex;
+      gap:1em;
+      align-items:center;
+      align-content: flex-end;
+      flex-wrap: wrap;
+      border-bottom: 2px inset rgb(0,0, 30);
+}
+
+span.link:hover{
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+}
+div.left{
+      grid-area: l;
+      display:flex;
+      padding-right: 50px;
+      padding-top: 20px;;
+      flex-direction: column;
+      
+      
+}
+div.aboutme{
+      font-size: 2em;
+}
+div.interests_education{
+      
+      display:flex;
+      flex-direction:row ;
+      justify-content:space-between;
+      font-size:1.3em;
+      color:brown;
+      width:400px;
+}
+
+div.interests .details , div.education .details{
+      font-size:16px;
+      margin-right: -30px;
+      margin-top:-10px;
+}
+div.left div.description{
+      font-size:18px;
+      text-align: justify;
+}
+div.right{
+      
+      grid-area:r;
+      display:flex;
+      flex-direction:column;
+      align-content:flex-start;
+      align-items:center;
+      line-height: 2em;
+      
+      
+}
+span a{
+      text-decoration: none;
+}
+.engwords{
+      font-size:14px;
+      font-style:italic;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color:brown;
+      text-transform: uppercase;
+}
+
+img#pr{
+      margin-right: 20px;
+      margin-top: 10px;
+      display:block;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      
+}
+div.right div.image{
+      
+      align-self:auto;
+      
+}
+div.right div.degree{
+      align-self:center;
+      margin-right: 10px;
+      
+}
+div.name{
+      font-size: 1.2rem;
+      font-family:"pt bold heading", "Simplified Arabic" ,"Traditional Arabic";
+}
+footer.footer{
+      grid-area: f;
+      background-color: green;
+      font-size:14px;
+      font-style:italic;
+      text-align: center;
+      color:white;
+      font-weight: bolder;
+}
+a.here{
+font-size: 20px;;
+}

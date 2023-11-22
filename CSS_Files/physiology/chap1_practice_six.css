@@ -1,0 +1,119 @@
+html{
+    background-color:skyblue;
+}
+body{
+    direction: rtl;
+    background-color:beige;
+    width:90%;
+    border:black 5px groove;
+    margin:auto;
+    font-size:1em ;
+    font-family:"Traditional Arabic", "Simplified Arabic";
+}
+table{
+    padding:20px;
+    margin:auto;
+    margin-top:30px;
+    width:75%;
+   vertical-align:center ;
+    background-image: linear-gradient(45deg, chocolate 0%, darkblue 80%);
+   /* background-image: linear-gradient(180deg, darkblue 20%,  gold 70%);*/
+      
+}
+#stem, #thead{
+    font-size:2em;
+    padding-right: 15px;
+    color:white;
+}
+/* المشتتات او بصورة ادق البدائل الخاطئة والبديل الصحيح*/
+.distractor{
+    width:60%;
+    font-size:1.7em;
+    color:white;
+    padding-right:10px;
+}
+.alphabetic{
+    width:5%;
+    font-size:2em;
+    text-align: center;
+    text-emphasis-style:bolder;
+    color:white;
+}
+input{
+    width:90%;
+    height: 2em;
+}
+.button{
+    width:5%;
+}
+tr input:checked{
+    background:green;
+}
+.timer{
+    position:relative;
+    margin-top:20px;
+    margin-right: 50px;
+    width:150px;
+    height:150px;
+    background-color: lightblue;
+    border:3px black groove;
+    border-radius:50%;
+    z-index:0;
+}
+.timer::after{
+      content:' ';
+      position: absolute;
+      background-color:black;
+      width:15px;
+      height:15px;
+      z-index: 11;
+      top:50%;
+      left:45%;
+      border-radius:50%;
+}
+/* div1 is the hand to rotate */
+.timer .hand{
+    --rotation:0;
+    width:3px;
+    height:40%;
+    bottom:45%;
+    margin-right: 50%;
+    background-color: red;
+    z-index:2;
+    /* rotate an object */
+    transform:rotate(0deg);
+    position:absolute;
+    transform-origin:bottom;
+    transform: translateX(50%) rotate(calc(var(--rotation)*1deg));
+}
+
+.timer .number{
+    position:absolute;
+    --rotation:0;
+    font-size:1.6rem;;
+    width:100%;
+    height:100%;
+   text-align: center;
+   font-weight: bolder;
+   transform: rotate(var(--rotation));
+    
+}
+.next ,#finished{
+      width:40%;
+      
+      font-size:1.5em;
+}
+.btn{
+      text-align: center;
+      
+}
+.timer .number15{--rotation:90deg;}
+.timer .number30{--rotation:180deg;}
+.timer .number45{--rotation:270deg;}
+
+
+.test{
+
+background-image: linear-gradient(180deg, yellow 10%, green 70%);
+transition:background-image 2s;
+}

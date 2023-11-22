@@ -1,0 +1,93 @@
+body{
+      width:90%;
+      margin:0;
+      direction:rtl;
+      height: 90vh;
+      font-size:1.3em;
+      
+}
+.container{
+      display:grid;
+      height: 90vh;
+      width:90%;
+      margin:auto;
+      margin-top:10px;
+      border:5px maroon groove;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows:70px 70px 70px auto 80px;
+      grid-template-areas: 
+      "co co co co co"
+      "sb ch ch ch ch   "
+      "sb ns ns ns ns  "
+      "sb ma ma ma ma "
+      " hs hs hs hs hs";
+      justify-content: center;
+      text-align: center;
+      padding-top:5px;
+      gap:2px;
+      }
+
+.course{
+      grid-area:co;
+      
+      
+}
+.chap1{
+      grid-area: ch;
+}
+.nameSeat{
+      grid-area: ns;
+      display:flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      text-align:right;
+      padding-right:10px;
+      
+     
+}
+.name{
+      flex-grow:3;
+}
+.seatN{
+      flex-grow:1;
+}
+.main{
+      grid-area: ma;
+      display:flex;
+      flex-direction:row;
+      gap:2px;
+     
+
+}
+.headScore{
+      grid-area: hs;
+      display:grid;
+      direction:rtl;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: rep(2, 1fr);
+      
+}
+.sidebar{
+      grid-area:sb;
+      
+}
+
+.main, .nameSeat, .chap1{
+      background-image: linear-gradient(45deg, gray 20%, tan 80%);
+      padding-top:1em;
+      font-weight: 800;
+}
+.course, .headScore, .sidebar {
+      background-image: radial-gradient(circle, skyblue 20%, tan 80%);
+      padding-top:1em;
+      font-weight: 800;
+}
+.quests{
+      display:grid;
+      grid-template-columns: 6fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      justify-content: space-evenly;
+      
+}
+
+

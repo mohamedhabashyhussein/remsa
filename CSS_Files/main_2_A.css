@@ -1,0 +1,43 @@
+body{
+   
+    direction: rtl;
+    width:80%;
+    margin:auto;
+    background-color:aqua;
+    position:relative;
+       
+}
+
+#instruction{
+    
+    background-color:tan;
+    position: absolute;
+    margin-top:100px;
+    width:90%;
+    text-align: center;
+    font-size:25px;
+    font-weight: 800;
+    font-family:"Traditional Arabic";
+}
+
+#registration_form{
+    width:100%;
+    margin-top:10px;
+    position: absolute;
+}
+#Registration_Table{
+    position: relative;
+    background-color: skyblue;
+    font-size:20px;
+    font-weight: 800;
+    
+    width:100%;
+}
+input[type='text'], input[type='password'], input[type='submit'], select{
+    font-size:16px;
+    font-weight: 600;
+    width:250px;
+    height:30px;
+}
+
+

@@ -1,0 +1,131 @@
+body{
+      direction: ltr;
+      
+      
+}
+/*    المكون الرئيسي والمحتوى الرئيسي وهو على شكل grid*/
+.container{
+      display:grid;
+      margin:auto;
+      margin-top:50px;
+      height:80vh;
+      border:3px black inset;
+      height: 90%;
+      width: 70%;
+      grid-template-columns:1fr 4fr;
+      grid-template-rows: 70px auto  50px;
+      align-content:start;      
+}
+.header, .main, .sidebar, .footer{
+      border:2px firebrick inset;
+      background-color: beige;
+      text-align: left;
+}
+.header{
+      grid-column-start: 1;
+      grid-column-end: -1;
+      
+}
+.main{
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+      color:white;
+      font-size: 20px;
+      text-align: center;
+      font-weight: 800;
+    
+}
+.studentName, .lastVisiting{
+background-image:linear-gradient(90deg, maroon 50%, darkblue 80%);
+ padding: 10px 0;
+}
+.course, .results div{
+      background-image:linear-gradient(45deg, darkblue 50%, maroon 50%);
+      padding:10px 0;
+           
+}
+.footer{
+       grid-column-start: 1;
+      grid-column-end: -1;
+      padding-left:20px;
+      text-align: right;
+     
+}
+.sidebar{
+      grid-row:2/3;
+      
+}
+.links{
+      list-style:none;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      
+}
+a{
+      text-decoration: none;;
+}
+.header .links li{
+      margin-left:20px;
+      font-weight: 600;
+      font-size: 18px;
+
+}
+.header .links li:hover, .training, .videoquestions{
+      background-color:rgba(100, 100, 100, .4);
+      border:2px green solid;
+}
+.main .sidebar{
+     text-align: left;
+}
+.chapters, .results{
+      font-weight: 600;
+      font-size: 16px;
+      font-family: 'Simplified Arabic';
+     
+}
+.results{
+      display:grid;
+      
+      grid-template-columns: repeat(4, 1fr);
+     border:2px beige groove;
+      gap:5px;
+      align-content:start;
+     
+      
+      
+}
+.studentinfo{
+      display:flex;
+      flex-direction: row;
+      gap:2px;
+      justify-content:center;
+}
+.studentName{
+      flex-grow: 1;
+      
+}
+.lastVisiting{
+      flex-grow: 2;
+}
+.header{
+      display:flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap:20px;
+}
+.logoutPic{
+      height:50px;
+      width: 50px;
+      padding-left:20px;
+      padding-top:10px;
+      
+}
+.headerLink{
+      flex-grow: 1;
+}
+.sidebar li{
+      margin-left: -20px;
+      padding-left:-10px;
+}

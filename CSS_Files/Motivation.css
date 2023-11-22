@@ -1,0 +1,18 @@
+body{
+    width:1000px;
+    margin: 50px;
+    background-color:midnightblue;
+    border:solid 5px lightblue;
+}
+input[type=radio]{
+    width:30px;
+    height: 20px;
+}
+input[type=button]{
+    background-color: lightblue;
+    font-size:20px;
+}
+#finish{
+    font-size:20px;
+    background-color:lightblue;
+}

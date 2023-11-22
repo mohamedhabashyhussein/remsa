@@ -1,0 +1,78 @@
+body{
+      direction: rtl;
+      margin: auto;
+      font-size: 20px;
+      font-family: 'Traditional Arabic' ;
+      font-weight: bold;
+      color:darkblue;
+}
+div{
+      padding-right: 10px;
+      text-align: justify;
+      padding-left: 10px;
+}
+div.container{
+      width:65vw;
+      height:80vh;
+      margin: auto;
+      position: relative;
+      margin-top:10px;
+      border-radius: 2px solid red;
+      
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: 1fr 5fr 1fr;
+      grid-template-areas: 
+      "h h h h h h h h"
+      "m m m m m m m m"
+      "f f f f f f f f";
+}
+div.header{
+      grid-area: h;
+      margin-top: 30px;;
+      display:flex;
+          
+      gap:1em;
+      align-items:center;
+      align-content: flex-end;
+      flex-wrap: wrap;
+      border-bottom: 2px inset rgb(0,0, 30);
+}
+hr{
+      line-height: 10px;
+}
+span.link:hover{
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+}
+div.mainclass{
+      grid-area: m;
+      background-color:aliceblue;
+}
+
+.engwords{
+      font-size:14px;
+      font-style:italic;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color:brown;
+      text-transform: uppercase;
+}
+.engwords2{
+      font-size:14px;
+      font-style:italic;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color:brown;
+      
+}
+footer.footer{
+      grid-area: f;
+      background-color: green;
+      font-size:14px;
+      font-style:italic;
+      text-align: center;
+      color:white;
+      font-weight: bolder;
+}
+a.here{
+font-size: 20px;;
+}

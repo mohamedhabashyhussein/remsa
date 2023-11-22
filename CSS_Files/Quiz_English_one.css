@@ -1,0 +1,18 @@
+﻿body
+{
+    width:900px;
+    border:solid red 2px;
+    background-color:darkblue;
+    margin:auto 200px;
+    position:absolute;
+}
+#Table_Quiz1{
+    width:600px;
+    background-color:skyblue;
+    margin:auto;
+    text-align:center;
+}
+td label{
+    font-size:18px;
+    font-weight:bolder;
+}

@@ -1,0 +1,97 @@
+body{
+   
+    direction: rtl;
+    width:90%;
+    height:90vh;
+    margin:auto;
+    background-color:aqua;
+    position:relative;
+    place-items: center;
+    
+}
+.maincontainer{
+      width:95%;
+      height: 95%;
+      margin-top:20px;
+      border:5px maroon inset;
+      display:grid;
+      grid-template-columns: 1fr 5fr 1fr;
+      grid-template-rows: 1fr 1fr .7fr .4fr;
+      grid-template-areas: 
+      "logo mht alex_p"
+      "complain mhp ahmed" 
+      "password_c log_in log_in" 
+      "cr cr cr";
+}
+.mht{
+      grid-area:mht;
+      align-self:center;
+      font-size: 30px;
+      font-family:'pt bold heading' 'Simplified Arabic' 'Traditional Arabic';
+      background-image: radial-gradient(circle,blue 30%, green 50%);
+      color:white;
+      font-weight: 800;
+      text-align:center;
+}
+.logo{
+      grid-area: logo;
+}
+.alex_p{
+      grid-area:alex_p;
+}
+.mhp{
+      grid-area: mhp;
+}
+.ahmed{
+      grid-area:ahmed;
+}
+.complain{
+      grid-area:complain;
+}
+.password_c{
+      grid-area:password_c;
+}
+.cr{
+      grid-area:cr;
+      border:2px maroon outset;
+      font-size: 30px;
+      font-family:'pt bold heading' 'Simplified Arabic' 'Traditional Arabic';
+      background-image: radial-gradient(circle,blue 10%, green 30%);
+      color:white;
+      font-weight: 800;
+      text-align:center;
+
+}
+.log_in{
+      grid-area:log_in;
+      border:5px black groove;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas: 
+      "a b c"
+      "d e f";
+      
+}
+.username{
+      grid-area:a;
+}
+.password{
+      grid-area:b;
+}
+.program{
+      grid-area:c;
+}
+.btn_enter{
+      grid-area:d;
+}
+.btn_new{
+      grid-area:e;
+}
+.btn_rtv{
+      grid-area:f;
+}
+
+
+
+
