@@ -1,0 +1,275 @@
+Begin Program R.
+options(warn = -1)
+library(careless)
+library(psych)
+library(ggplot2)
+library(stringr)
+df<-spssdata.GetDataFromSPSS(variables="%%item_5%%")
+l<-0
+cc<-as.integer(noquote(unlist(str_split(c(%%item_507%%), ","))))
+merge_alpha<-list()
+merge_n<-list()
+lst<-1
+if(length(cc)>1){
+  for(i in cc){
+    df1<-df[, (l+1):(i+l)]
+    l<-i+l
+    df_dim<-cbind(nrow(df1), ncol(df1))
+    df_dim<-data.frame(df_dim)
+    names(df_dim)<-c("N Sample Size", " n Number of Items")
+    spsspivottable.Display(df_dim, title="Sample Size and Number of Items")
+    alpha_or<-psych::alpha(df1)$total$raw_alpha
+    spsspivottable.Display(alpha_or, collabel="Cronbach's Alpha", title="Relibaility Before Removing Individuals with identical Response")
+     #####################################################
+    
+    ######################################################
+    # The first step
+    if("%%item_6%%"=="longstring"){
+      lg<-longstring(df1)
+      boxplot(lg, col="red", main="Longest String")
+      name<-names(df1)
+      lg<-data.frame(lg)
+      names(lg)<-c("Length of Identical Responses")
+      spsspivottable.Display(table(lg), collabel=c("Length Successive Identical Responses", "Freq"), title="Length and Frequency of Successive Identical Responses")
+      del<-df1[lg==length(name),]
+      spsspivottable.Display(del)
+      
+      df_del<-df[lg!=length(names(df1)),]
+      df_dim<-cbind(nrow(df_del), ncol(df_del))
+      df_dim<-data.frame(df_dim)
+      names(df_dim)<-c("N Sample Size", " n Number of Items")
+      spsspivottable.Display(df_dim, title="Sample Size and Number of Items After Removing Individuals with identical responses")
+      
+      alpha_del<-cbind(psych::alpha(df_del)$total$raw_alpha, psych::alpha(df_del)$item.stats$n[1])
+      alpha_del<-data.frame(alpha_del)
+      names(alpha_del)<-c("Cronbach's alpha", "Sample Size")
+      spsspivottable.Display(alpha_del, title="Relibaility after Removing Individuals with identical Response")
+      
+      
+      
+    }
+    ###################################################
+    # The second Step 
+    if("%%item_959%%"=="T"){
+      lg<-longstring(df1)
+      df<-df[lg!=length(names(df1)),]
+      df_dim<-cbind(nrow(df1), ncol(df1))
+      df_dim<-data.frame(df_dim)
+      names(df_dim)<-c("N Sample Size", " n Number of Items")
+      spsspivottable.Display(df_dim, title="Sample Size and Number of Items After Removing Individuals with identical responses")
+      
+      alpha_del<-cbind(psych::alpha(df1)$total$raw_alpha, psych::alpha(df1)$item.stats$n[1])
+      alpha_del<-data.frame(alpha_del)
+      names(alpha_del)<-c("Cronbach's alpha", "Sample Size")
+      spsspivottable.Display(alpha_del, title="Relibaility after Removing Individuals with identical Response")
+    }
+    ## end of the second step
+    #############################
+    
+    #################################
+    #  the fourth step
+    if("%%item_6%%"=="irv"){
+      irvv<-irv(df1)
+      boxplot(irvv, main="Intra-Individual Response Variability", col="green")
+      name<-names(df1)
+      hist(irvv, col=rainbow(5), main="Intra-Individual Response Variability")
+      irvv_2<-irv(df1, split=T, num.split=3)
+      spsspivottable.Display(head(irvv_2), title="intra-individual Response Variability split")
+      irvv_2_lg<-reshape(irvv_2, direction="long", varying=names(irvv_2), timevar="splits", v.names="irv")
+      irvv_2_lg$splits<-factor(irvv_2_lg$splits, levels=1:ncol(irvv_2), labels=names(irvv_2))
+      ggplot(irvv_2_lg, aes( x=irv, fill=splits))+geom_density(alpha=.4)
+      
+    }
+    
+    ############
+    #### the fifth step
+    ########################
+    if("%%item_6%%"=="Mahalanobis"){
+      mah_df<-mahad(df1, flag=T, na.rm=T, confidence=%%item_582%%)
+      spsspivottable.Display(table(mah_df$flagged), title=" Frequency of flagged Mahalanobis Distance %%item_582%% Confidence Interval")
+      spsspivottable.Display(mah_df[mah_df$flagged=="TRUE",], title="Mahalanobis Distance %%item_582%% Confidence Interval")
+      if("%%item_666%%"=="TRUE"){
+        df_mah<-df1[mah_df$flagged=="FALSE", ]
+        alpha_mah<-psych::alpha(df_mah)$total
+        df_mah_dim<-cbind(nrow(df_mah), ncol(df_mah))
+        df_mah_dim<-data.frame(df_mah_dim)
+        names(df_mah_dim)<-c("N Sample Size", " n Number of Items")
+        spsspivottable.Display(df_mah_dim, title="Sample Size and Number of Items")
+        alpha_mah<-psych::alpha(df_mah)$total
+        spsspivottable.Display(alpha_mah, title="Relibaility After Removing flagged Individuals")
+        mah_df_2<-mahad(df_mah, flag=T, na.rm=T, confidence=%%item_582%%)
+        spsspivottable.Display(table(mah_df_2$flagged), title=" Frequency of flagged Mahalanobis Distance %%item_582%% Confidence Interval")
+        
+      }
+    }
+    #########
+    merge_alpha<-unlist(merge_alpha)
+    merge_n<-unlist(merge_n)
+    merge_alpha<-cbind(merge_alpha)
+    merge_alpha<-data.frame(merge_alpha, merge_n)
+    spsspivottable.Display(merge_alpha, collabel=c("Cronbach's Alpha", "Number of Items"), title="Relibaility of the subscales")
+    
+    ##################################################
+    
+    ################################
+    #############################
+    ##################################################
+    # delete the extreme
+    if("%%item_6%%"=="psychsyn"){
+      crt<-psychsyn_critval(df1)
+      spsspivottable.Display(head(crt), 
+                             title="the most highest Correlation among Items")
+      spsspivottable.Display(table(crt$Freq>%%item_253%%))
+      ind_syn<-psychsyn(df1, %%item_253%%, diag=F, resample_na=T)
+      ind_syn<-data.frame(ind_syn)
+      ind_syn$id<-rownames(ind_syn)
+      spsspivottable.Display(head(ind_syn[order(ind_syn$ind_syn), ]), title="Correlation of syn Items")
+      spsspivottable.Display(table(ind_syn$ind_syn<=0, useNA="ifany"), title="Number of Persons with Negative correlation among Synonyms Items")
+      spsspivottable.Display(dim(df[ind_syn$ind_syn>0, ]))
+      df_real<-df1[ind_syn$ind_syn>0, ]
+      alpha_real<-psych::alpha(df_real)$total
+      spsspivottable.Display(alpha_real, title="Relibaility after Removing Individuals with low corr of identical Items")
+    }
+    ######################################
+    lst<-lst+1
+    
+  }
+  
+  # end of the if for loop
+}else{
+  df_dim<-cbind(nrow(df), ncol(df))
+  df_dim<-data.frame(df_dim)
+  names(df_dim)<-c("N Sample Size", " n Number of Items")
+  spsspivottable.Display(df_dim, title="Sample Size and Number of Items")
+  alpha_or<-psych::alpha(df)$total$raw_alpha
+  spsspivottable.Display(alpha_or, collabel="Cronbach's Alpha", title="Relibaility Before Removing Individuals with identical Response")
+  ##############################################
+  # the first step for nor for loop
+  if("%%item_6%%"=="longstring"){
+    lg<-longstring(df)
+    boxplot(lg, col="red", main="Longest String")
+    name<-names(df)
+    lg<-data.frame(lg)
+    names(lg)<-c("Length of Identical Responses")
+    spsspivottable.Display(table(lg), collabel=c("Length Successive Identical Responses", "Freq"), title="Length and Frequency of Successive Identical Responses")
+    del<-df[lg==length(name),]
+    spsspivottable.Display(del)
+    
+    df_del<-df[lg!=length(names(df)),]
+    df_dim<-cbind(nrow(df_del), ncol(df_del))
+    df_dim<-data.frame(df_dim)
+    names(df_dim)<-c("N Sample Size", " n Number of Items")
+    spsspivottable.Display(df_dim, title="Sample Size and Number of Items After Removing Individuals with identical responses")
+    
+    alpha_del<-cbind(psych::alpha(df_del)$total$raw_alpha, psych::alpha(df_del)$item.stats$n[1])
+    alpha_del<-data.frame(alpha_del)
+    names(alpha_del)<-c("Cronbach's alpha", "Sample Size")
+    spsspivottable.Display(alpha_del, title="Relibaility after Removing Individuals with identical Response")
+    
+  }
+  if("%%item_959%%"=="T"){
+    lg<-longstring(df)
+    df<-df[lg!=length(names(df)),]
+    df_dim<-cbind(nrow(df), ncol(df))
+    df_dim<-data.frame(df_dim)
+    names(df_dim)<-c("N Sample Size", " n Number of Items")
+    spsspivottable.Display(df_dim, title="Sample Size and Number of Items After Removing Individuals with identical responses")
+    
+    alpha_del<-cbind(psych::alpha(df)$total$raw_alpha, psych::alpha(df)$item.stats$n[1])
+    alpha_del<-data.frame(alpha_del)
+    names(alpha_del)<-c("Cronbach's alpha", "Sample Size")
+    spsspivottable.Display(alpha_del, title="Relibaility after Removing Individuals with identical Response")
+  }
+  #################################
+  #  the fourth step
+  if("%%item_6%%"=="irv"){
+    irvv<-irv(df)
+    boxplot(irvv, main="Intra-Individual Response Variability", col="green")
+    name<-names(df)
+    hist(irvv, col=rainbow(5), main="Intra-Individual Response Variability")
+    irvv_2<-irv(df, split=T, num.split=3)
+    spsspivottable.Display(head(irvv_2), title="intra-individual Response Variability split")
+    irvv_2_lg<-reshape(irvv_2, direction="long", varying=names(irvv_2), timevar="splits", v.names="irv")
+    irvv_2_lg$splits<-factor(irvv_2_lg$splits, levels=1:ncol(irvv_2), labels=names(irvv_2))
+    ggplot(irvv_2_lg, aes( x=irv, fill=splits))+geom_density(alpha=.4)
+    
+  }
+  #### the fifth step
+  ########################
+  if("%%item_6%%"=="Mahalanobis"){
+    mah_df<-mahad(df, flag=T, na.rm=T, confidence=%%item_582%%)
+    spsspivottable.Display(table(mah_df$flagged), title=" Frequency of flagged Mahalanobis Distance %%item_582%% Confidence Interval")
+    spsspivottable.Display(mah_df[mah_df$flagged=="TRUE",], title="Mahalanobis Distance %%item_582%% Confidence Interval")
+    if("%%item_666%%"=="TRUE"){
+      df_mah<-df[mah_df$flagged=="FALSE", ]
+      alpha_mah<-psych::alpha(df_mah)$total
+      df_mah_dim<-cbind(nrow(df_mah), ncol(df_mah))
+      df_mah_dim<-data.frame(df_mah_dim)
+      names(df_mah_dim)<-c("N Sample Size", " n Number of Items")
+      spsspivottable.Display(df_mah_dim, title="Sample Size and Number of Items")
+      alpha_mah<-psych::alpha(df_mah)$total
+      spsspivottable.Display(alpha_mah, title="Relibaility After Removing flagged Individuals")
+      mah_df_2<-mahad(df_mah, flag=T, na.rm=T, confidence=%%item_582%%)
+      spsspivottable.Display(table(mah_df_2$flagged), title=" Frequency of flagged Mahalanobis Distance %%item_582%% Confidence Interval")
+      
+    }
+  }
+}
+
+####### the end of if 
+#############
+
+
+if("%%item_509%%"=="T"){
+  lg_avg<-longstring(df, avg=T)
+  boxplot(lg_avg$avg, col="green", main="Average of Length Responses")
+  lng_df<-df[lg_avg$avg>5,]
+  spsspivottable.Display(table(lg_avg$avg>5), , collabel=c("average >5", "FREQ"), title="number of respondents greater with average greater than 5")
+  
+   spsspivottable.Display(data.frame(rownames(lng_df)), collabel="ارقام الصفوف", outline="أرقام الأفراد الذين تزيد طول استجابتهم المتكررة عن خمسة "  , templateName='APA_TimesRoma_12pt', title="أرقام الحالات التي تزيد اطوال استجابتها المتكررة عن خمسة")
+ 
+  if("%%item_666%%"=="TRUE"){
+	alpha_drop_5<-psych::alpha(df[lg_avg$avg<=5, ])
+    alpha_drop_55<-cbind(alpha_drop_5$total$raw_alpha, alpha_drop_5$item.stats$n[1])
+    alpha_drop_55<-data.frame(alpha_drop_55)
+    names(alpha_drop_55)<-c("Cronbach's alpha", "Sample Size")
+    spsspivottable.Display(alpha_drop_55, title="Relibaility after Removing Individuals with Average Length Greater than 5")
+    
+  }
+}
+
+#############################
+# delete the extreme
+if("%%item_6%%"=="psychsyn"){
+  crt<-psychsyn_critval(df)
+  spsspivottable.Display(head(crt), 
+                         title="the most highest Correlation among Items")
+  spsspivottable.Display(table(crt$Freq>%%item_253%%))
+  ind_syn<-psychsyn(df, %%item_253%%, diag=F, resample_na=T)
+  ind_syn<-data.frame(ind_syn)
+  ind_syn$id<-rownames(ind_syn)
+  spsspivottable.Display(head(ind_syn[order(ind_syn$ind_syn), ]), title="Correlation of syn Items")
+  spsspivottable.Display(table(ind_syn$ind_syn<=0, useNA="ifany"), title="Number of Persons with Negative correlation among Synonyms Items")
+  spsspivottable.Display(dim(df[ind_syn$ind_syn>0, ]))
+  df_real<-df[ind_syn$ind_syn>0, ]
+  alpha_real<-psych::alpha(df_real)$total
+  spsspivottable.Display(alpha_real, title="Relibaility after Removing Individuals with low corr of identical Items")
+}
+
+if("%%item_6%%"=="evenodd"){
+  cc<-as.integer(noquote(unlist(str_split(c(%%item_507%%), ","))))
+  even_odd<-evenodd(df, cc, diag=TRUE)
+  even_odd<-data.frame(even_odd)
+  names(even_odd)<-c("Even_Odd_Corr")
+  even_odd$Even_Odd_Corr<- -even_odd$Even_Odd_Corr
+  spsspivottable.Display(head(even_odd), title="Person Reliability")
+  hist(even_odd$Even_Odd_Corr, col=rainbow(6))
+  tbl_eo<-table(even_odd$Even_Odd_Corr>.30)
+  spsspivottable.Display(tbl_eo, collabels=c("greater than .3", "FREQ"), title="Person Reliability")
+  dff<-df[even_odd$Even_Odd_Corr>.10,]
+  alpha_del_eo<-cbind(psych::alpha(dff)$total$raw_alpha, psych::alpha(dff)$item.stats$n[1])
+  alpha_del_eo<-data.frame(alpha_del_eo)
+  names(alpha_del_eo)<-c( "Cronbach's alpha", "Sample Size")
+  spsspivottable.Display(alpha_del_eo, title="Relibaility after Removing Individuals with Low Even odd corr")
+}
+end program.

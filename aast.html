@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title> The Absetism of AAST's Students</title>
+    <script type="text/javascript" >
+function check(){
+var name=document.getElementById('name');
+var Seat_Num=document.getElementById('Seat_Num');
+var Course=document.getElementById('Course');
+var Group=document.getElementById('Group');
+var Level=document.getElementById('Level');
+var ques1_ns=document.getElementById('rd1_ns');
+var ques1_no=document.getElementById('rd1_no');
+var ques1_yes=document.getElementById('rd1_yes');
+var ques2_ns=document.getElementById('rd2_ns');
+var ques2_no=document.getElementById('rd2_no');
+var ques2_yes=document.getElementById('rd2_yes');
+var ques3_ns=document.getElementById('rd3_ns');
+var ques3_no=document.getElementById('rd3_no');
+var ques3_yes=document.getElementById('rd3_yes');
+var ques4_ns=document.getElementById('rd4_ns');
+var ques4_no=document.getElementById('rd4_no');
+var ques4_yes=document.getElementById('rd4_yes');
+if (name.value==="" || Seat_Num.value==="" || Course.value===""|| Group.value===""|| Level.value==="") {
+    alert("من فضلك استكمل البيانات");
+   return false;
+}
+if(!ques1_ns.checked && !ques1_no.checked && !ques1_yes.checked)
+{
+    alert("هل حضرت المحاضرة الأولى ");
+    return false;
+}
+if(!ques2_ns.checked && !ques2_no.checked && !ques2_yes.checked)
+{
+    alert("هل حضرت المحاضرة الثانية ");
+    return false;
+}
+if(!ques3_ns.checked && !ques3_no.checked && !ques3_yes.checked)
+{
+    alert("هل حضرت المحاضرة الثالثة ");
+    return false;
+}
+if(!ques4_ns.checked && !ques4_no.checked && !ques4_yes.checked)
+{
+    alert("هل حضرت المحاضرة الرابعة؟");
+    return false;
+}
+}
+    </script>
+</head>
+<body lang="ar" style="background: green; border:groove blue 2px; padding:20px;">
+ <form method="POST" onsubmit="return check();" action="aast_2022.php">
+    <table style="width:75%;   background: skyblue; margin:auto; border:groove skyblue 5px; padding: 20px; ">
+        <tr  style="font-size:20px;"> <td colspan=3>
+        
+            <input   type="text"  placeholder="Your Name"   id="name" name="name" size="50" style="text-align: center; font-size:20px;">
+        </td>
+        <td    style="font-family:'traditional arabic';text-align: right;">
+            أكتب اسمك بالكامل Write Your Name 
+        </td></tr>
+        <tr  style="font-size:20px;"> <td colspan=3 style="">
+            <input type="text" id="Seat_Num"   name="Seat_Num" placeholder="Your Registration ID" size="50" style="text-align: center; font-size:20px;">
+        </td>
+        <td    style="font-family:'traditional arabic'; text-align: right;">
+            أدخل رقم التسجيل  Registration ID
+        </td>
+        </tr>
+         <tr>
+           
+            <td colspan=3>
+                <select name="Course" id="Course" style="width:550px;height:30px;font-size:20px;margin-right: 10px; text-align:center" >
+
+                        <option style="font-size:20px;">  </option>
+
+                        <option value="NP105"  style="font-size:20px;"><b>Psychology PPP431 </b></option>
+                        <option value="NP104" style="font-size:20px;"><b> Psychology NP104 </b></option>
+                        <option value="PPP431" style="font-size:20px;"><b>  Psychology NP105 </b> </option>
+                        
+                        
+                        
+                 </select>
+            </td>
+             <td style="font-family:'traditional arabic';font-size:20px;text-align: right;">
+
+                        <label>
+
+                       اختار اسم وكود المقرر Select Your Group 
+
+                        </label>
+
+             </td>
+        </tr>
+         <tr>
+           
+            <td colspan=3>
+                <select name="Group" id="Group" style="width:550px;height:30px;font-size:20px;margin-right: 10px; text-align:center" >
+
+                        <option style="font-size:20px;">  </option>
+
+                        <option value="A"  style="font-size:20px;"><b>A  </b></option>
+                        <option value="B" style="font-size:20px;"><b> B </b></option>
+                        <option value="C" style="font-size:20px;"><b>  C </b> </option>
+                        <option value="D"  style="font-size:20px;"><b>D  </b></option>
+                        <option value="E" style="font-size:20px;"><b> E</b></option>
+                        <option value="F" style="font-size:20px;"><b>  F </b> </option>
+                        <option value="G" style="font-size:20px;"><b> G </b></option>
+                        <option value="H" style="font-size:20px;"><b> H </b> </option>
+                        
+                        
+                 </select>
+            </td>
+             <td style="font-family:'traditional arabic';font-size:20px;text-align: right;">
+
+                        <label>
+
+                       أختار مجموعتك Select Your Group 
+
+                        </label>
+
+             </td>
+        </tr>
+        <tr>
+           
+            <td colspan=3>
+                <select name="Level" id="Level" style="width:550px;height:30px;font-size:20px;margin-right: 10px; text-align:center" >
+
+                        <option style="font-size:20px;">  </option>
+
+                        <option value="1"  style="font-size:20px;"><b>1  </b></option>
+                        <option value="2" style="font-size:20px;"><b> 2 </b></option>
+                        <option value="3" style="font-size:20px;"><b>  3 </b> </option>
+                        <option value="4"  style="font-size:20px;"><b>4  </b></option>
+                        <option value="5" style="font-size:20px;"><b> 5</b></option>
+                        <option value="6" style="font-size:20px;"><b>  6 </b> </option>
+                        <option value="7" style="font-size:20px;"><b> 7 </b></option>
+                        <option value="8" style="font-size:20px;"><b> 8 </b> </option>
+                        <option value="9" style="font-size:20px;"><b> 9 </b></option>
+                        <option value="10" style="font-size:20px;"><b>  10 </b> </option>
+                        
+                 </select>
+            </td>
+             <td style="font-family:'traditional arabic';font-size:20px;text-align: right;">
+
+                        <label>
+
+                       اختار المستوي Select Your Level
+
+                        </label>
+
+             </td>
+        </tr>
+                <tr  style="font-size:20px;">
+            <td style="font-size:20px;  font-family:'traditional Arabic';">
+            
+                        <input type="radio" name="rd1" value=-1   id="rd1_ns"> غير متأكد  
+            </td>
+        <td >
+            <input type="radio" value= 0 name="rd1" id="rd1_no"> لا 
+        </td>
+                <td>
+            <input type="radio"  value= 1 name="rd1"  id="rd1_yes" >  نعم
+                  </td>
+        
+        <td style="font-family:'traditional arabic'; text-align: right;">
+            هل حضرت المحاضرة الأولى 
+        </td></tr>
+        
+        <tr  style="font-size:20px;">
+            <td style=" font-family:'traditional Arabic'; ">
+            
+                        <input type="radio" name="rd2"  value=-1 id="rd2_ns"> غير متأكد  
+            </td>
+        <td >
+            <input type="radio" name="rd2" value=0  id="rd2_no" > لا 
+        </td>
+                <td>
+            <input type="radio" name="rd2" value= 1 id="rd2_yes"   >  نعم
+                  </td>
+        <td style="font-family:'traditional arabic'; text-align: right;">
+           هل حضرت المحاضرة الثانية
+        </td></tr>
+        
+        <tr  style="font-size:20px;">
+            <td style="font-size:20px; font-family:'traditional Arabic';">
+            
+                        <input type="radio"  value= -1 name="rd3" id="rd3_ns"> غير متأكد  
+            </td>
+        <td >
+            <input type="radio" name="rd3"  value= 0 id="rd3_no"> لا 
+        </td>
+                <td>
+            <input type="radio" name="rd3" value= 1 id="rd3_yes" >  نعم
+                  </td>
+                <td style="font-family:'traditional arabic'; text-align: right;">
+          هل حضرت المحاضرة الثالثة؟
+                  </td>
+        </tr>
+        <tr  style="font-size:20px;">
+            <td style="font-size:20px; font-family:'traditional Arabic';">
+            
+                        <input type="radio"  value= -1 name="rd4" id="rd4_ns"> غير متأكد  
+            </td>
+        <td >
+            <input type="radio" name="rd4"  value= 0 id="rd4_no"> لا 
+        </td>
+                <td>
+            <input type="radio" name="rd4" value= 1 id="rd4_yes" >  نعم
+                  </td>
+                <td style="font-family:'traditional arabic'; text-align: right;">
+          هل حضرت المحاضرة الرابعة؟
+                  </td>
+        </tr>
+        <br>
+        <tr><td colspan=4 style="text-align: center;">
+            <input type="submit"   value="أرسل البيانات"  style="width: 200px; height: 50px; background-color: tan; color:darkblue;font-size: 30px; font-family: 'Traditional Arabic';">
+                
+        </td>
+        </tr>
+    </table>
+ </form>
+</body>
+</html>

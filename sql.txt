@@ -1,0 +1,33 @@
+update Registration_2022 set try_chap1_practice_ three=NULL, score_chap1_practice_ two=NULL , time_chap1_practice_ two=NULL , start_time_chap1_practice_ two=NULL , end_time_chap1_practice_ one=NULL , time_chap1_practice_ one=NULL where username="hussein1262"
+
+update Registration_2022 set try_chap1_practice_two=NULL, score_chap1_practice_two=NULL , time_chap1_practice_two=NULL , start_time_chap1_practice_two=NULL , end_time_chap1_practice_two=NULL , time_chap1_practice_two=NULL where username="hussein1262"
+
+
+update Registration_2022 set try_chap1_practice_three=NULL, score_chap1_practice_three=NULL , time_chap1_practice_three=NULL , start_time_chap1_practice_three=NULL , end_time_chap1_practice_three=NULL , time_chap1_practice_three=NULL where username="hussein1262"
+
+
+alter table Registration_2022 add try_chap1_practice_one int(10), add score_chap1_practice_one int(10),  add start_time_chap1_practice_one datetime, add end_time_chap1_practice_one datetime, add time_chap1_practice_one datetime
+
+SELECT fullname, Major , count(Seat_N) as sn FROM `Registration_2022` group by Major, Fullname  having sn>=2
+
+
+ select Fullname, Seat_N,  count(email) as ce, max(id) as lastId, email
+    from Registration_2022
+   where email in (
+              select email 
+                from Registration_2022
+               group by email
+              having count(*) > 1
+       )
+   group by email;
+update Registration_2022 set try_chap1_practice_one=NULL, score_chap1_practice_one=NULL , time_chap1_practice_one=NULL , start_time_chap1_practice_one=NULL , end_time_chap1_practice_one=NULL , time_chap1_practice_one=NULL where username="hussein1262";
+
+update Registration_2022 set try_chap1_practice_two=NULL, score_chap1_practice_two=NULL , time_chap1_practice_two=NULL , start_time_chap1_practice_two=NULL , end_time_chap1_practice_two=NULL , time_chap1_practice_two=NULL where username="hussein1262";
+
+update Registration_2022 set try_chap1_practice_three=NULL, score_chap1_practice_three=NULL , time_chap1_practice_three=NULL , start_time_chap1_practice_three=NULL , end_time_chap1_practice_three=NULL , time_chap1_practice_three=NULL where username="hussein1262";
+
+update Registration_2022 set try_chap2_practice_one=NULL, score_chap2_practice_one=NULL , time_chap2_practice_one=NULL , start_time_chap2_practice_one=NULL , end_time_chap2_practice_one=NULL , time_chap2_practice_one=NULL where username="hussein1262";
+
+update Registration_2022 set try_chap2_practice_two=NULL, score_chap2_practice_two=NULL , time_chap2_practice_two=NULL , start_time_chap2_practice_two=NULL , end_time_chap2_practice_two=NULL , time_chap2_practice_two=NULL where username="hussein1262";
+
+update Registration_2022 set try_chap2_practice_three=NULL, score_chap2_practice_three=NULL , time_chap2_practice_three=NULL , start_time_chap2_practice_three=NULL , end_time_chap2_practice_three=NULL , time_chap2_practice_three=NULL where username="hussein1262";

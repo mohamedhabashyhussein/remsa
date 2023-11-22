@@ -1,0 +1,92 @@
+<html lang="ar">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2903350145958981"
+     crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="/CSS_Files/main_page.css">
+      <title>الموقع الرسمي للاستاذ الدكتور محمد حبشي حسين </title>
+</head>
+<body>
+     <div class="container" >
+      <div class="header">
+      <span class="link"><a href="#"></a>
+      </span><span class="link"><a href="#">الصفحة الرئيسية</a>
+      </span><span class="link">  <a href="mySkills.html"> المهارات</a>
+      </span><span class="link"> <a href="#">المشاريع</a>
+      </span><span class="link"><a href="#">التواصل</a>
+      </span><span class="link"><a href="#">الأبحاث والكتب</a></span>
+      </span><span class="link"><a href="#">السيرة الذاتية</a>
+      </span>
+      </div>
+      <div class="right">
+                  <div class="image">
+                        <img src="Pictures/Mohamed11.jpg" alt="", width="170px", height="170px", id="pr">
+                  </div>
+                  <div class="name"> 
+                        الاستاذ الدكتور/ محمد حبشي حسين 
+                   </div>
+                   <div class="phd">
+                        جامعة الإسكندرية
+                  </div>
+                  <div class="master">
+                        جامعة الملك خالد
+                  </div>
+                  <div class="bachlor">
+                        جامعة جازان
+                   </div>
+                   <div>
+                        جامعة جورجيا
+                   </div>
+                  
+      </div>
+      
+      <div class="left">
+            <div class="aboutme"> 
+                  نبذة مختصرة
+            </div>
+            <div class="description">
+                  الاسم محمد حبشي حسين من مواليد الإسكندرية في الأول من فبراير 1962 ، أعمل حالية بوظيفة استاذ متفرع بقسم علم النفس التربوي، كلية التربية جامعة الإسكندرية، عملت لمدة 6 سنوات بجامعة الملك خالد بالمملكة العربية السعودية، وعامان بجامعة جازان بالمملكة العربية السعودية، حاصل على الدكتوراه من جامعة جورجيا <span id="uga" class="engwords"> Univeristy of Georgia </span> بالولايات المتحدة الامريكية في عام 2001، تخصص الإحصاء والقياس النفسي والتربوي، اهتم بالإحصاء في مجال العلوم النفسية والتربوية، والقياس وخاصة نظرية الاستجابة للمفردة  <span id="irt" class="engwords"> Item Response Theory </span>، ونمذجة المعادلات البنائية  <span id="sem" class="engwords"> Structural Equation Modeling </span>
+            </div>
+            <div class="interests_education">
+                  <div class="interests">
+                        الأهتمامات البحثية
+                  <div class="details">
+                        <ul>
+                              <li>نمذجة المعادلات البنائية</li>
+                              <li> نظرية الاستجابة للمفردة </li>
+                              <li> تعلم الألة</li>
+                              <li> البرمجة </li>
+                        </ul>
+                  </div>
+                  </div>
+                  <div class="education">
+                         الدرجات العلمية
+                         <div class="details">
+                              <ul>
+                                    <li>الاستاذية في 2012</li>
+                                    <li> استاذ مساعد في 2007</li>
+                                    <li>الدكتوراه في 2001</li>
+                                    <li>الماجستير في 1994</li>
+                                   
+                                   
+                              </ul>
+                         </div>
+                  </div>
+            </div>
+      </div>
+      <footer class="footer">
+            &copy
+  جميع حقوق هذا الموقع محفوظة للسيد الاستاذ الدكتور محمد حبشي حسين 
+ <br>
+ كلية التربية جامعة الاسكندرية جمهورية مصر العربية 
+ <br>
+ hussein1262@hotmail.com
+<br>
+201004171893+
+      </footer>
+     </div>
+     
+</body>
+</html>

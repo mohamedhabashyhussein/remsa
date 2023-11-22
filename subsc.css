@@ -1,0 +1,10 @@
+body{
+    background-color:lightblue;
+    width:70%;
+    margin: auto;
+    margin-top:7%;
+    border-width:5px;
+    border-style: solid;
+    border-color: red;
+    padding: 10px;
+}

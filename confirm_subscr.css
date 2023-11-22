@@ -1,0 +1,28 @@
+body{
+    background-color:lightblue;
+    width:70%;
+    margin: auto;
+    margin-top:7%;
+    border-width:5px;
+    border-style: solid;
+    border-color: red;
+    padding: 10px;
+    direction: ltr;
+}
+h1, h2{
+    border: solid 1px beige; 
+    padding: 5px;
+    direction: rtl;
+}
+.eng{
+    color:darkblue;
+    font-weight:900;
+    font-size:30px;
+    font-style: italic;
+}
+.ar_em{
+    color:green;
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size:larger;
+}
